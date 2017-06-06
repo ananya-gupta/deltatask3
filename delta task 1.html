@@ -114,13 +114,11 @@ function sorting1(){
 
 var toSort = document.getElementById('n1').childNodes;
 toSort = Array.prototype.slice.call(toSort, 0);
-console.log(toSort);
 toSort.sort(function(a, b) {
     var aord = +a.getAttribute('class');
     var bord = +b.getAttribute('class');
     return -(aord - bord);
 });
-console.log(toSort);
 var parent = document.getElementById('n1');
 parent.innerHTML = "";
 for(var i = 0, l = toSort.length; i < l; i++) {
