@@ -1,129 +1,147 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>delta 1 </title>
-<style>
-body {
-		background-image : url("black.jpg");}
-		}
+   <title>delta 1 </title>
+   <style>
+	body 
+	   {
+            background-image : url("black.jpg");}
+           }
 
-</style>
+   </style>
 </head>
 <body>
 <div>
-<img src="stickynotes.png" height="300"width="300" align="left">
-<img src="stickynotes.png" height="300"width="300" align="right">
-<center><h1 style="color : #20B2AA"> DELTA TASK 1</h1>
-<h2 style="color : #9400D3">Joe Hacker's Notes</h2>
-<h3 style="color : #FF69B4">Press "NEW NOTE" to add a note</h3>
-<h3 style="color : #FF4500">Press "DELETE NOTE" to delete a note</h3>
-<h3 style="color : #B22222">Choose any priority(i.e. low, medium or high)</h3>
+	<img src="stickynotes.png" height="300"width="300" align="left">
+	<img src="stickynotes.png" height="300"width="300" align="right">
+   <center>
+	<h1 style="color : #20B2AA"> DELTA TASK 1</h1>
+	<h2 style="color : #9400D3">Joe Hacker's Notes</h2>
+	<h3 style="color : #FF69B4">Press "NEW NOTE" to add a note</h3>
+	<h3 style="color : #FF4500">Press "DELETE NOTE" to delete a note</h3>
+	<h3 style="color : #B22222">Choose any priority(i.e. low, medium or high)</h3>
 	<h3 style="color : #0000FF">Use SORT button to sort the notes in decreasing order of priority.
-		If you do not set any priority, the priority will be considered minimum</h3></center>
-<center><button  onclick="new_note()" >NEW NOTE</button>
-		<button  onclick="sorting1()" >SORT</button>
-<div style="color : green" id="n1"></div></center></div>
+	If you do not set any priority, the priority will be considered minimum</h3>
+   </center>
+   <center>
+	<button  onclick="new_note()" >NEW NOTE</button>
+	<button  onclick="sorting1()" >SORT</button>
+	<div style="color : green" id="n1"></div>
+   </center>
+</div>
 
 <script>
 var textboxID=0;
 var para, DIV;
-function new_note()
-{textboxID++;
+function new_note()//function to create new division which contains textbox,delete button and priority buttons
+	{
+textboxID++;
 var element = document.getElementById("n1");
 var DIV = document.createElement("DIV");
-DIV.setAttribute("id","DIV"+textboxID);
-DIV.setAttribute("class",-2);
-	para = document.createElement("TEXTAREA");   
-	para.setAttribute("id","text"+textboxID);
-	var newLine = document.createElement("BR");
-	var button = document.createElement("button");
-	var DELETE = document.createTextNode("DELETE NOTE");
-	button.setAttribute("id",textboxID);
-button.appendChild(DELETE);
-DIV.appendChild(para);
-DIV.appendChild(newLine);
-DIV.appendChild(button);
-element.appendChild(DIV);
-	button.setAttribute("onclick","delete_note(this.id)");
-	var newLine1 = document.createElement("BR");
-DIV.appendChild(newLine1);
- var x = document.createElement("INPUT");
-    x.setAttribute("type", "radio");
-     x.setAttribute("name", "priority"+textboxID);
-     x.setAttribute("value","low");
-	x.setAttribute("id","L"+textboxID);
-	 x.setAttribute("onchange","abc1(this.id[1]); sorting(this.id[0],this.id[1])");	
-     	var x1 = document.createElement("LABEL");
-		var name = document.createTextNode("low");
-		x1.appendChild(name);
-	DIV.appendChild(x1);
-	x1.appendChild(x);
+   DIV.setAttribute("id","DIV"+textboxID);
+   DIV.setAttribute("class",-2);
+para = document.createElement("TEXTAREA");   
+   para.setAttribute("id","text"+textboxID);
+var newLine = document.createElement("BR");
+var button = document.createElement("button");
+var DELETE = document.createTextNode("DELETE NOTE");
+   button.setAttribute("id",textboxID);
+   button.appendChild(DELETE);
+   DIV.appendChild(para);
+   DIV.appendChild(newLine);
+   DIV.appendChild(button);
+   element.appendChild(DIV);
+   button.setAttribute("onclick","delete_note(this.id)");
+var newLine1 = document.createElement("BR");
+   DIV.appendChild(newLine1);
+var x = document.createElement("INPUT");
+   x.setAttribute("type", "radio");
+   x.setAttribute("name", "priority"+textboxID);
+   x.setAttribute("value","low");
+   x.setAttribute("id","L"+textboxID);
+   x.setAttribute("onchange","abc1(this.id[1]); sorting(this.id[0],this.id[1])");	
+var x1 = document.createElement("LABEL");
+var name = document.createTextNode("low");
+   x1.appendChild(name);
+   DIV.appendChild(x1);
+   x1.appendChild(x);
     
-    var y = document.createElement("INPUT");
-    y.setAttribute("type", "radio");
-     y.setAttribute("name", "priority"+textboxID); 
-	 y.setAttribute("value","medium");
-	  y.setAttribute("id","M"+textboxID);
-	  y.setAttribute("onchange","abc1(this.id[1]); sorting(this.id[0],this.id[1])");
-	  
-	 
-	 var y1 = document.createElement("LABEL");
-		var name = document.createTextNode("meduim");
-		y1.appendChild(name);
-	DIV.appendChild(y1);
-	y1.appendChild(y);
+var y = document.createElement("INPUT");
+   y.setAttribute("type", "radio");
+   y.setAttribute("name", "priority"+textboxID); 
+   y.setAttribute("value","medium");
+   y.setAttribute("id","M"+textboxID);
+   y.setAttribute("onchange","abc1(this.id[1]); sorting(this.id[0],this.id[1])");
+ 
+var y1 = document.createElement("LABEL");
+var name = document.createTextNode("meduim");
+   y1.appendChild(name);
+   DIV.appendChild(y1);
+   y1.appendChild(y);
 	
-    var z = document.createElement("INPUT");
-    z.setAttribute("type", "radio");
-     z.setAttribute("name", "priority"+textboxID);
-z.setAttribute("value","high");
-z.setAttribute("id","H"+textboxID);
- z.setAttribute("onchange","abc1(this.id[1]); sorting(this.id[0],this.id[1])");	 
-       var z1 = document.createElement("LABEL");
-		var name = document.createTextNode("high");
-		z1.appendChild(name);
-	DIV.appendChild(z1);
-	z1.appendChild(z);
+var z = document.createElement("INPUT");
+   z.setAttribute("type", "radio");
+   z.setAttribute("name", "priority"+textboxID);
+   z.setAttribute("value","high");
+   z.setAttribute("id","H"+textboxID);
+   z.setAttribute("onchange","abc1(this.id[1]); sorting(this.id[0],this.id[1])");	 
+var z1 = document.createElement("LABEL");
+var name = document.createTextNode("high");
+   z1.appendChild(name);
+   DIV.appendChild(z1);
+   z1.appendChild(z);
 var newLine2 = document.createElement("BR");
-DIV.appendChild(newLine2);
-}
-function delete_note(x)
-{
-document.getElementById("n1").removeChild(document.getElementById("DIV"+x));
-textboxID--;
-}
-function abc1(X){
-	
-	if(document.getElementById("L"+X).checked){
-	document.getElementById("text"+X).setAttribute("style","background-color :red");
-	
+   DIV.appendChild(newLine2);
 	}
-	else if(document.getElementById("M"+X).checked){
+function delete_note(x)//function to delete note by using delete button's id.
+{
+	document.getElementById("n1").removeChild(document.getElementById("DIV"+x));
+	textboxID--;
+}
+function abc1(X)//function to assign color according to priority
+{
+	if(document.getElementById("L"+X).checked)
+	{
+	document.getElementById("text"+X).setAttribute("style","background-color :red");
+	}
+	else if(document.getElementById("M"+X).checked)
+	{
 	document.getElementById("text"+X).setAttribute("style","background-color :yellow");
 	}
-	else if(document.getElementById("H"+X).checked){
+	else if(document.getElementById("H"+X).checked)
+	{
 	document.getElementById("text"+X).setAttribute("style","background-color :green");
 	} 
 
 }
-function sorting(x,y){
-if(x == "L"){document.getElementById("DIV"+y).setAttribute("class",-1)}
-else if(x == "M"){document.getElementById("DIV"+y).setAttribute("class",0)}
-else if(x == "H"){document.getElementById("DIV"+y).setAttribute("class",1)}
-	 
+function sorting(x,y)//function to assign a new attribute to notes according to selected priority
+{
+if(x == "L")
+	{
+	document.getElementById("DIV"+y).setAttribute("class",-1)
+	}
+else if(x == "M")
+	{
+	document.getElementById("DIV"+y).setAttribute("class",0)
+	}
+else if(x == "H")
+	{
+	document.getElementById("DIV"+y).setAttribute("class",1)
+	}
 }
-function sorting1(){
-
+function sorting1()//function to sort notes according to priority
+{
 var toSort = document.getElementById('n1').childNodes;
-toSort = Array.prototype.slice.call(toSort, 0);
-toSort.sort(function(a, b) {
-    var aord = +a.getAttribute('class');
-    var bord = +b.getAttribute('class');
+   toSort = Array.prototype.slice.call(toSort, 0);
+   toSort.sort(function(a, b) {
+var aord = +a.getAttribute('class');
+var bord = +b.getAttribute('class');
     return -(aord - bord);
 });
 var parent = document.getElementById('n1');
-parent.innerHTML = "";
-for(var i = 0, l = toSort.length; i < l; i++) {
+   parent.innerHTML = "";
+for(var i = 0, l = toSort.length; i < l; i++) 
+{
     parent.appendChild(toSort[i]);
 }
 
